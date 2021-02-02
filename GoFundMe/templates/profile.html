@@ -1,0 +1,114 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+{% load static %}
+
+
+<br>
+
+<br>
+<div class="container"><div class="card">    <div class="card-body px-lg-5 pt-0"><br>
+<div class="row">
+<div class="col-md-4">
+{% if profile.image %}
+<img src="{{profile.image.url}}" alt="" class="card-img-top">
+
+{% else %}
+  <img src="{% static 'img/download.png' %}" class="card-img-top" alt="..." style="max-height:360px;">
+
+{% endif %}
+</div>
+<div class="col-md-6">  
+
+<h3 >{{profile.user.first_name}}  {{profile.user.last_name}}  <a style="color:#21A3F6;" href="{% url 'core:profile' user.profile.slug %}">@{{profile.user.username}}</a></h3>
+<br>
+<hr><br>
+<h3>{{profile.address}}</h3>
+
+</div>
+</div>
+</div></div>
+</div>
+
+<div class="row">
+</div>
+
+
+
+</div></div>
+
+          
+ <section class="text-center mb-4">
+ <div class="container">
+ <br><hr><br>
+        </div>
+</div>
+      </section>
+ {% if petitions %}
+ <section class="text-center mb-4">
+ <div class="container">
+ <br><hr><br>
+ <h1>petitions i added</h1>
+ <br><hr><br>
+        <div class="row wow fadeIn">
+
+{% for m in petitions %}
+
+          <div class="col-lg-4 col-md-6 mb-4">
+
+            <div class="card">
+
+              <div class="view overlay">
+                <img src="{{ m.image.url }}" class="card-img-top"style="height:380px;" >
+        
+              </div>
+
+              <div class="card-body text-center">
+                                  <a href="{% url 'core:petition_detail' m.id %}" class="dark-grey-text"><h6>{{ m }}</h6>    </a>
+
+            </div>
+
+            </div>
+
+          </div>
+          {% endfor %}
+        </div>
+</div>
+      </section>{% endif %}
+
+      
+ {% if follows %}
+ <section class="text-center mb-4">
+ <div class="container">
+ <br><hr><br>
+ <h1>petitions i follow</h1>
+ <br><hr><br>
+        <div class="row wow fadeIn">
+
+{% for m in follows %}
+
+          <div class="col-lg-4 col-md-6 mb-4">
+
+            <div class="card">
+
+              <div class="view overlay">
+                <img src="{{ m.image.url }}" class="card-img-top"style="height:380px;" >
+        
+              </div>
+
+              <div class="card-body text-center">
+                                  <a href="{% url 'core:petition_detail' m.id %}" class="dark-grey-text"><h6>{{ m }}</h6>    </a>
+
+            </div>
+
+            </div>
+
+          </div>
+          {% endfor %}
+        </div>
+</div>
+      </section>{% endif %}
+{% endblock %}
+

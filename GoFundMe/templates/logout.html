@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block title %}
+{{block.super}}| logout
+{% endblock title %}
+{% load widget_tweaks %}
+
+{% block content %}
+<br><br><br><br><br><br><br><br><br><br>
+<h1 class="text-center">you are logged out</h1>
+<h1 class="text-center"> <a href="{% url 'core:login' %}">login again</a></h1>
+
+<br><br><br><br><br><br><br><br><br><br><br><br>
+{% endblock content %}

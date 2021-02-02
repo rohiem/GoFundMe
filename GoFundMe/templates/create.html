@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+{% load widget_tweaks %}
+{% block title %}
+{{block.super}}| Create Petition
+{% endblock title %}
+{% block content %}
+<br><br><br><style>
+textarea:focus,
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="datetime"]:focus,
+input[type="datetime-local"]:focus,
+input[type="date"]:focus,
+input[type="month"]:focus,
+input[type="time"]:focus,
+input[type="week"]:focus,
+input[type="number"]:focus,
+input[type="email"]:focus,
+input[type="url"]:focus,
+input[type="search"]:focus,
+input[type="tel"]:focus,
+input[type="color"]:focus,
+.uneditable-input:focus {   
+  border-color: rgba(126, 239, 104, 0.8)!important;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(126, 239, 104, 0.6)!important;
+  outline: 0 none!important;
+}
+
+input[name='image'].//button {
+   transition: 200ms all ease;
+    font-size: 20px;
+    text-align: center;
+    border-radius: 5px;}
+    </style>
+<div class="container"><div class="card">    <div class="card-body px-lg-5 pt-0"><br>
+    <h1>create a petition</h1>
+    <form method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+            <div class="md-form mt-0">
+        {% render_field form.target|attr:'required:true'  class="form-control" %}
+                <label for="id_target">target</label>    <div class="help-block"style="color: red;">{{ form1.username.errors }}</div>
+
+            </div>  <div class="md-form mt-0">
+        {% render_field form.title|attr:'required:true'  class="form-control" %}
+                <label for="id_title">title</label>    <div class="help-block"style="color: red;">{{ form1.email.errors }}</div>
+
+            </div>
+
+            <!-- Password -->
+            <div class="md-form"><label for="id_for_who">For Who</label><br>
+        {% render_field form.for_who|attr:'required:true'  class="form-control" %}
+                
+                <div class="help-block"style="color: red;">{{ form.for_who.errors }}</div>
+            </div>
+
+            <!-- Phone number -->
+            <div class="md-form mt-0">
+        {% render_field form.zip_code|attr:'required:true'  class="form-control" %}
+                <label for="id_zip_code">Zip code</label>
+            
+            </div>
+<br>
+            <!-- Newsletter -->
+            <div class="form-check">
+                <label class="form-check-label" for="id_image">image</label>
+
+        {% render_field form.image|attr:'required:true'  class="form-control" %}
+            </div>
+            <br><br>
+   <!-- Newsletter -->
+            <div class="md-form mt-0">
+        {% render_field form.story|attr:'required:true'  class="form-control" %}
+                <label class="form-check-label" for="id_story">Story</label>
+            </div>   <!-- Newsletter -->
+            <div class="md-form mt-0">
+        {% render_field form.youtube|attr:'required:true'  class="form-control" %}
+                <label class="form-check-label" for="id_youtube">youtube</label>
+            </div>
+      <button type="submit" class="btn btn-success btn-md">submit</button>
+    </form>
+</div>
+</div></div>
+
+
+{% endblock content %}

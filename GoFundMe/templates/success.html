@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+{{block.super}}| success
+{% endblock title %}
+{% block content %}
+<br><br><br><br>
+<br><br><br><br>
+<div class="container"><div class="card">    <div class="card-body px-lg-5 pt-0"><br>
+
+	<div id="box">
+	<h1 style="color:#00FF00;" > <i class="fas fa-check"> </i>  YOU MADE A SUCCESSFUL TRANSFER</h1><br>
+		<h4>Thank you for your contribution of ${{amount}}!</h4><br>
+		<p>Your support helps me fulfill my dream of helping those in need around the world! You should receive a receipt to the email you provided shortly :)</p>
+		<hr>
+		<h3><a class="myButton" href="{% url 'core:home' %}">&#x2190;Back to home page</a></h3>
+	</div>
+	</div>
+	</div>
+	</div>
+<br><br><br><br>
+<br><br><br><br>
+
+{% endblock content %}

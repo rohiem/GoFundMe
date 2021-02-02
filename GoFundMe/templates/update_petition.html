@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block title %}
+{{block.super}}| update target
+{% endblock title %}
+{% block content %}
+<br><br><br>
+
+
+<div class="container"><div class="card">    <div class="card-body px-lg-5 pt-0"><br>
+    <h1>Torrent movie Upload</h1>
+    <form method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit" class="btn btn-primary btn-md">Upload</button>
+    </form>
+</div>
+</div></div>
+
+
+{% endblock content %}
